@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE tmres SYSTEM "tmres.dtd">
+<tmres>
+ <bookmarks>
+ </bookmarks>
+ <palettes>
+<palette size="16" direct="no" offset="4460" codec="CF00" endianness="little">
+  <description>SamurottPalette1</description>
+</palette>
+ </palettes>
+</tmres>

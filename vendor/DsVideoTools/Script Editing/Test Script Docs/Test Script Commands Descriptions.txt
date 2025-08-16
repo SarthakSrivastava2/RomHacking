@@ -1,0 +1,182 @@
+-----Southern trigger walks player to Rowan-----
+Freezes all NPC and Player in place.
+Activates Action 1 where Rowan faces you and then displays a  [ ! ] symbol
+Wait for Rowan to stop moving before running the next command
+Stores player's name in variable 0x0, to use in any messages used by this script until it ends
+Opens message text box with text 0x0 (Where Rowan says hellp and displays players name with macro)
+Keep message 0x0 displayed until player hits A
+Closes message text box
+Gets player X and Y Matrix coodiantes. Stores X in variable 0x8004 and Y in varaible 0x8005. 
+Does player's X matrix coordinate equal 110?
+Jump to funtion 1 if previous command is true
+Does player's X matrix coordinate equal 111?
+Jump to funtion 2 if previous command is true
+Does player's X matrix coordinate equal 112?
+Jump to funtion 3 if previous command is true
+Does player's X matrix coordinate equal 113?
+Jump to funtion 4 if previous command is true
+(this command is never hit, but needs to be there for formatting)
+
+-----Northen trigger stops player from walking north before opening briefcase-----
+Freezes all NPC and Player in place.
+Opens message text box with text 0x2 (Where screams at you for trying to go north too early. Macro used makes text large)
+Keep message 0x2 displayed until player hits A
+Closes message text box
+Activates Action 2 which steps you back down to stop you from passing the northern trigger
+Waits for the player to stop moving before running the next command
+Releases NPCs and Player so they can move again
+Script ends and control is given back to player
+
+-----A on Briefcase-----
+Freezes all NPC and Player in place.
+Fade screen to black. (Not sure what the parameters represent. They are copied from the original game freak script)
+Wait for fade to end before running next command
+Sets flag 2210, which will prevent the briefcase from being loaded when you return to the map later.
+Removes the briefcase overworld sprite, which will be hidden behind the faded screen
+Loads the 3D biefcase to picks starter from, (the briedcase screen runs it's own built in commands while you pick a starter)
+Runs after you have chosen the starter. This also makes the "Pokemon" menu section appear, so you can access your party.
+Returns the game from the briefcase back to the player and rowan, where the screen is still faded to black.
+Fade the game from a black screen back to full view again.
+Wait for fade to end before running next command.
+Checks which starter was selected in the briefcase.
+Gives the player the pokemon found by the previous command, and gives them a lvl 5 one in their first party slot.
+Gets player X and Y Matrix coodiantes. Stores X in variable 0x8004 and Y in varaible 0x8005. 
+Does player's Y matrix coordinate equal 873?
+Jump to funtion 5 if previous command is true
+Does player's Y matrix coordinate equal 872?
+Jump to funtion 6 if previous command is true
+Does player's Y matrix coordinate equal 871?
+Jump to funtion 7 if previous command is true
+(this command is never hit, but needs to be there for formatting)
+
+-----Talk to Rowan-----
+Freezes all NPC and Player in place.
+Checks if flag 2210 is currently set or cleared
+Jumps to function 8 if flag is currenly cleared (for if you hit A on Rowan before opening the briefcase)
+Opens message text box with text 0xF (for if you hit A after picking a starter. Where they will say "Go Away.")
+Keep message 0xF displayed until player hits A
+Closes message text box
+Releases NPCs and Player so they can move again
+Script ends and control is given back to player
+
+-------------------------------------------------
+
+-----Walks player from southern trigger up to Rowan #1-----
+Activates Action 3 that walks the player infront of Rowan from the souther trigger tile in the 110 Matrix X coodinate.
+Waits for the movement to stop before running the next command
+Jumps to Function 9
+
+-----Walks player from southern trigger up to Rowan #2-----
+Activates Action 4 that walks the player infront of Rowan from the souther trigger tile in the 111 Matrix X coodinate.
+Waits for the movement to stop before running the next command
+Jumps to Function 9
+
+-----Walks player from southern trigger up to Rowan #3-----
+Activates Action 5 that walks the player infront of Rowan from the souther trigger tile in the 112 Matrix X coodinate.
+Waits for the movement to stop before running the next command
+Jumps to Function 9
+
+-----Walks player from southern trigger up to Rowan #4-----
+Activates Action 6 that walks the player infront of Rowan from the souther trigger tile in the 113 Matrix X coodinate.
+Waits for the movement to stop before running the next command
+Jumps to Function 9
+
+-----Walks player from briefcase up to Rowan #1-----
+Activates Action 7 that walks the player infront of Rowan from the tile that is south of the briefcase. (Matrix y:  873)
+Waits for the movement to stop before running the next command
+Jumps to Function 10
+
+-----Walks player from briefcase up to Rowan #2-----
+Activates Action 8 that walks the player infront of Rowan from the tile that is east of the briefcase. (Matrix y:  872)
+Waits for the movement to stop before running the next command
+Jumps to Function 10
+
+-----Walks player from briefcase up to Rowan #3-----
+Activates Action 9 that walks the player infront of Rowan from the tile that is north of the briefcase. (Matrix y:  871)
+Waits for the movement to stop before running the next command
+Jumps to Function 10
+
+-----Talking to Rowan before opening briefcase-----
+Opens message text box with text 0xE (Where Rowan encourages to go pick a starter)
+Keep message 0xE displayed until player hits A
+Closes message text box
+Releases NPCs and Player so they can move again
+Script ends and control is given back to player
+
+-----Rowan says hello and summons briefcase -----
+Stores rival's name in variable 0x1, to use in any messages used by this script until it ends
+Opens message text box with text 0x1 (Where Rowan says he was expecting you, and offers you a starter. Displays rival name with macro)
+Keep message 0x1 displayed until player hits A
+Closes message text box
+Teleports the briefcase to the tile to the right of Rowan. (Hex Values: Overworld ID: 2, Matrix X: 112, Matrix Z: 0, Matrix Y: 872, Direction facing: 0- Doesn't matter for briefcase)
+Sets variable 16620 to 1, which deactivates the southern trigger and activates the northern trigger
+Releases NPCs and Player so they can move again
+Script ends and control is given back to player
+
+-----Rowan asks if you want to nickname your starter-----
+Opens message text box with text 0x3 (where you are asked if you want to give your new pokemon a name) 
+Open Yes/No selection box and stores your selection in variable 0x800C
+Checks the current value in 0x800C and compares it to 0x0 (which is yes)
+Jumps to Function 11 if the player selected yes
+Jumps to Function 12 if the player selected no
+(this command is never hit, but needs to be there for formatting)
+
+-----Opens the name entry screen-----
+Sets 0x800C to 0 (which it already was back when the player said "yes" so I am not sure why... but this is how game freak did this part so I am following their example.) 
+Closes message text box
+Fade screen to black. (Not sure what the parameters represent. They are copied from the original game freak script)
+Wait for fade to end before running next command
+Loads the name entry screen and points it at the first pokemon in your party
+(This copies the value of variable 0x800C to variable 0x8002, though this is also from the default game freak script i am not sure why as 0x8002 isn't used again)
+Fade the game from a black screen back to full view again.
+Wait for fade to end before running next command
+Opens message text box with text 0x4 (Where Rowan asks if you are certain about your name)
+Open Yes/No selection box and stores your selection in variable 0x800C
+Checks the current value in 0x800C and compares it to 0x1 (which is no)
+Jumps to Function 11 if the player selected no (where this same script starts over and reopens the name entry screen)
+Jumps to Function 13 if the player selected yes
+(this command is never hit, but needs to be there for formatting)
+
+-----Rowan provides you with tools for your trip-----
+Changes text box that is already open to message text 0x5 (Where Rowan says he is giving you the pokedex)
+Keeps message 0x5 displayed until player hits A
+Closes text box
+Give player the pokedex
+Play sound 0x486 (standard get item sound effect)
+Stores player's name in variable 0x0, to use in any messages used by this script until it ends
+Opens message text box with text 0x6 (Where it is announced that the player got the Pokedex. Player name is dislpayed with the macro)
+Wait for sound 0x486 to finish before running the next command (all commands between this command and the PlaySound command above will run while the sound plays)
+Keep message 0x6 displayed until player hits A
+Changes current text box to display text 0x7 (Where Rowan says he is giving you the national dex)
+Keep message 0x7 displayed until player hits A
+Upgrades player to the national dex
+Play sound 0x486 (standard get item sound)
+Changes current text box to display text 0x8 (Where it is annoucned that the player got the Pokedex. Player name is dislpayed with the macro)
+Wait for sound 0x486 to finish before running the next command (all commands between this command and the PlaySound command above will run while the sound plays)
+Keep message 0x8 displayed until player hits A
+Changes current text box to display text 0x9 (Where Rowan says he is giving you the Pokétch)
+Keep message 0x9 displayed until player hits A
+Gives the player the Pokétch
+Play sound 0x486 (standard get item sound)
+Changes current text box to display text 0xA (where it is annoucned that the player got the Pokétch. Player name is dislpayed with the macro)
+Keep message 0xA displayed until player hits A
+Changes current text box to display text 0xB (Where Rowan says he is giving you the running shoes)
+Keep message 0xB displayed until player hits A
+Gives the player the running shoes
+Play sound 0x486 (standard get item sound)
+Changes current text box to display text 0xC (where it is annoucned that the player got the running shoes. Player name is dislpayed with the macro)
+Wait for sound 0x486 to finish before running the next command (all commands between this command and the PlaySound command above will run while the sound plays)
+Keep message 0xC displayed until player hits A
+Changes current text box to display text 0xD (Where Rowan says their fairwell)
+Keep message 0xD displayed until player hits A
+Closes message text box
+Sets variable 16620 to 2, which now disables the northern trigger and keep the southern trigger disabled
+Releases NPCs and Player so they can move again
+Script ends and control is given back to player
+
+-----Commit new name to pokemon-----
+Unammed command that commits the provided nickname to your new starter.
+Jumps to Function 12
+
+-------------------------------------------------
+

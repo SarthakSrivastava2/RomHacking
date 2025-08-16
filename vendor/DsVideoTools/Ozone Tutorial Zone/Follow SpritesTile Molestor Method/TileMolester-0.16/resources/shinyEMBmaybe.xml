@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE tmres SYSTEM "tmres.dtd">
+<tmres>
+ <bookmarks>
+ </bookmarks>
+ <palettes>
+  <folder>
+    <name>Emboar</name>
+<palette size="32" direct="no" offset="4460" codec="CF00" endianness="little">
+  <description>shiny</description>
+</palette>
+  </folder>
+ </palettes>
+</tmres>

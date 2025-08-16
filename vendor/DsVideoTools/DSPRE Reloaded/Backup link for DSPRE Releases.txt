@@ -1,0 +1,3 @@
+This document was make in case you did not recieve the shortcut in my folder. You can use it to check for the latest updated versions for new features and bug fixes!
+
+https://github.com/AdAstra-LD/DS-Pokemon-Rom-Editor/releases

@@ -1,0 +1,3 @@
+Hello! Usually I just keep the version of a tool I keep in my videos in these folders, but some issues have been discovered with DSPRE 1.3.1 and 1.4.1 that were fixed in later versions. So I moved those versions to "outdated" folders to keep them in here in case you ever need them. But it's best to use the newest version included in here. Also be sure to use the included url to check for even more updated versions as well.
+
+-Jay-san 

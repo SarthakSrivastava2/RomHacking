@@ -1,0 +1,21 @@
+Unused Flags
+
+2207 - 2402 and 
+2549 - 2728 (not as tested as the ones above)
+
+----------------------------------------------------------------------
+Unused Variables
+
+16400-16700
+
+----------------------------------------------------------------------
+**These are just our estimations. If you want to make sure a flag or 
+variable sin't used in an unedited rom, you will want to open a clean
+rom in DSPRE and use the search feature on the script editor. Then
+you can use searches like the examples below. Just remember to convert the
+flag or variable number you are looking for to hex. As long as no results
+are found, then it should be unused.
+
+SetFlag 0xED
+
+SetVar 0x40E7

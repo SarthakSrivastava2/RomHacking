@@ -1,0 +1,9 @@
+[Maplist] 208 - [Color] 0 180 10 - [TextColor] Red
+[Maplist] 209 - [Color] 100 0 100 - [TextColor] White
+[Maplist] 203 - [Color] 80 180 185 - [TextColor] White
+
+[Maplist] 204 205 206 - [Color] 90 110 185 - [TextColor] Red
+
+[Maplist] 0 to 5 and 41 to 44 and 55 59 - [Color] 210 230 60 - [TextColor] Black
+
+[Maplist] 46 to 20 - [Color] 100 100 100 - [TextColor] White
