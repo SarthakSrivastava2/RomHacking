@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad8/Shunshui
-Created: Thu Aug 28 04:37:06 PM UTC 2025
-Status: Empty directory processed
+1. Darkrai
+2. Mega Bannette
+3. Latios
+4. Hydreigon
+5. Dusknoir
+6. Mimikyu
+7. Mismagius
+8. Unbreon

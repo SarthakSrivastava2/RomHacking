@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad12/Mayuri
-Created: Thu Aug 28 04:37:05 PM UTC 2025
-Status: Empty directory processed
+1. Deoxys
+2. Mega Gengar
+3. Venusaur
+4. Porygon-Z
+5. Weezing
+6. Ditto
+7. Dragalge
+8. Dracozolt/Arctovish

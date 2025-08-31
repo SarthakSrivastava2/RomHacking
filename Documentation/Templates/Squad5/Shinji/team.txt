@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad5/Shinji
-Created: Thu Aug 28 04:37:06 PM UTC 2025
-Status: Empty directory processed
+1. Hoopa Unbound
+2. Mega Slowbro
+3. Silvally
+4. Dragapult
+5. Reuniclus
+6. Sigilyph
+7. Malamar
+8. Espeon

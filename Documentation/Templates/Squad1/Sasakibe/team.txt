@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad1/Sasakibe
-Created: Thu Aug 28 04:37:05 PM UTC 2025
-Status: Empty directory processed
+1. Zapdos
+2. Mega Manectric
+3. Magnezone
+4. Zebstrika
+5. Bisharp
+6. Kilowattrell
+7. Helioptile
+8. Galvantula

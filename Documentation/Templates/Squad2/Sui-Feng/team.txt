@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad2/Sui-Feng
-Created: Thu Aug 28 04:37:05 PM UTC 2025
-Status: Empty directory processed
+1. Genesect
+2. Mega Beedrill
+3. Greninja
+4. Scolipede
+5. Ninjask
+6. Hawlucha
+7. Liepard
+8. Weavile

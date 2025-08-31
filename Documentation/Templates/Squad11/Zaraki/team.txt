@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad11/Zaraki
-Created: Thu Aug 28 04:37:05 PM UTC 2025
-Status: Empty directory processed
+1. Landorus
+2. Mega Tyranitar
+3. Hisuian Decidueye
+4. Conkeldurr
+5. Granbull
+6. Heracross
+7. Tyrantrum
+8. Cofagrigus

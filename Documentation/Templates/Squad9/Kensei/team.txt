@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad9/Kensei
-Created: Thu Aug 28 04:37:06 PM UTC 2025
-Status: Empty directory processed
+1. Galarian Zapdos
+2. Mega Pinsir
+3. Infernape
+4. Conkeldurr
+5. Pidgeot
+6. Druddigon
+7. Drifblim
+8. Archeops

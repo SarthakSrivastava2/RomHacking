@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad7/Komamura
-Created: Thu Aug 28 04:37:06 PM UTC 2025
-Status: Empty directory processed
+1. Zamazenta
+2. Mega Aggron
+3. Emboar
+4. Stoutland
+5. Boltund
+6. Excadrill
+7. Bronzong
+8. Bastiodon

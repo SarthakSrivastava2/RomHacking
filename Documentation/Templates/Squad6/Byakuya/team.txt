@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad6/Byakuya
-Created: Thu Aug 28 04:37:06 PM UTC 2025
-Status: Empty directory processed
+1. Zacian
+2. Mega Gallade
+3. Empoleon
+4. Aegislash
+5. Ninetales
+6. Tsareena
+7. Diancie
+8. Archaludon

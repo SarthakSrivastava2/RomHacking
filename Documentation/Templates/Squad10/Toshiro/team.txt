@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad10/Toshiro
-Created: Thu Aug 28 04:37:05 PM UTC 2025
-Status: Empty directory processed
+1. Articuno
+2. Mega Glalie
+3. Samurott
+4. Baxcalibur
+5. Aurorus
+6. Cryogonal
+7. Braviary
+8. Avalugg

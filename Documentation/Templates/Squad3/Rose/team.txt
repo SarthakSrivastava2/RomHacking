@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad3/Rose
-Created: Thu Aug 28 04:37:06 PM UTC 2025
-Status: Empty directory processed
+1. Meloetta
+2. Mega Medicham
+3. Skeledirge
+4. Exploud
+5. Jynx
+6. Lapras
+7. Ferrothorn
+8. Kricketune

@@ -1,5 +1,8 @@
-Team Information
-================
-Directory: ./Squad1/Yamamoto
-Created: Thu Aug 28 04:37:05 PM UTC 2025
-Status: Empty directory processed
+1. Groudon
+2. Reshiram
+3. Heatran
+4. Charizard
+5. Chandelure
+6. Volcorona
+7. Magmortar
+8. Arcanine
