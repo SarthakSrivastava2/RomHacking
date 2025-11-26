@@ -1,0 +1,68 @@
+
+import java.util.*;
+
+public class MinConfigReconstruction {
+    static class State implements Comparable<State> {
+        int cur;
+        String seq;
+        int idx;
+
+        State(int cur, String seq, int idx) {
+            this.cur = cur;
+            this.seq = seq;
+            this.idx = idx;
+        }
+
+        @Override
+        public int compareTo(State other) {
+            return this.seq.compareTo(other.seq);
+        }
+    }
+
+    public static String findMinConfig(int x, int y, String config) {
+        PriorityQueue<State> pq = new PriorityQueue<>();
+        Set<String> visited = new HashSet<>();
+
+        // Initialize with first digit matching config[0]
+        int d1 = x % 10, d2 = y % 10;
+        if (d1 == config.charAt(0) - '0') {
+            pq.add(new State(x, String.valueOf(d1), 1));
+        }
+        if (d2 == config.charAt(0) - '0') {
+            pq.add(new State(y, String.valueOf(d2), 1));
+        }
+
+        while (!pq.isEmpty()) {
+            State s = pq.poll();
+            if (s.idx == config.length()) {
+                return s.seq; // Found smallest valid sequence
+            }
+
+            String key = s.cur + "-" + s.idx;
+            if (visited.contains(key)) continue;
+            visited.add(key);
+
+            // Try adding x
+            int nextCurX = s.cur + x;
+            int digitX = nextCurX % 10;
+            int nextIdxX = s.idx;
+            if (digitX == config.charAt(nextIdxX) - '0') nextIdxX++;
+            pq.add(new State(nextCurX, s.seq + digitX, nextIdxX));
+
+            // Try adding y
+            int nextCurY = s.cur + y;
+            int digitY = nextCurY % 10;
+            int nextIdxY = s.idx;
+            if (digitY == config.charAt(nextIdxY) - '0') nextIdxY++;
+            pq.add(new State(nextCurY, s.seq + digitY, nextIdxY));
+        }
+
+        return "-1"; // No valid configuration
+    }
+
+    public static void main(String[] args) {
+        int x = 3, y = 7;
+        String config = "37";
+        System.out.println(findMinConfig(x, y, config)); // Example output
+    }
+}
