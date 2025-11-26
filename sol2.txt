@@ -1,0 +1,57 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct State {
+    long long cur;
+    string seq;
+    int idx;
+    bool operator<(const State &other) const {
+        return seq > other.seq; // For min-heap based on lexicographic order
+    }
+};
+
+string missingDigits(string config, int x, int y) {
+    priority_queue<State> pq;
+    unordered_set<string> visited;
+
+    int firstDigit = config[0] - '0';
+    if (x % 10 == firstDigit) pq.push({x, to_string(x % 10), 1});
+    if (y % 10 == firstDigit) pq.push({y, to_string(y % 10), 1});
+
+    while (!pq.empty()) {
+        State s = pq.top();
+        pq.pop();
+
+        if (s.idx == (int)config.size()) {
+            return s.seq; // Found smallest valid configuration
+        }
+
+        string key = to_string(s.cur) + "-" + to_string(s.idx);
+        if (visited.count(key)) continue;
+        visited.insert(key);
+
+        // Add x
+        long long nextCurX = s.cur + x;
+        int digitX = nextCurX % 10;
+        int nextIdxX = s.idx;
+        if (digitX == config[nextIdxX] - '0') nextIdxX++;
+        pq.push({nextCurX, s.seq + to_string(digitX), nextIdxX});
+
+        // Add y
+        long long nextCurY = s.cur + y;
+        int digitY = nextCurY % 10;
+        int nextIdxY = s.idx;
+        if (digitY == config[nextIdxY] - '0') nextIdxY++;
+        pq.push({nextCurY, s.seq + to_string(digitY), nextIdxY});
+    }
+
+    return "-1"; // No valid configuration
+}
+
+int main() {
+    string config = "37";
+    int x = 3, y = 7;
+    cout << missingDigits(config, x, y) << endl; // Example output
+    return 0;
+}
