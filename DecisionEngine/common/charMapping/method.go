@@ -1,1 +1,1 @@
-package brainmapping
+package charmapping
