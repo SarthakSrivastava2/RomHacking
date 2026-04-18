@@ -1,69 +1,27 @@
 package charmapping
 
-type BaseStat struct {
-	HP             Stat
-	Attack         Stat
-	Defense        Stat
-	SpecialAttack  Stat
-	SpecialDefense Stat
-	Speed          Stat
-}
+import models "github.com/SarthakSrivastava2/RomHacking/DecisionEngine/models"
 
-type StatBoostStage float32
-
-const (
-	StageMinusSix   StatBoostStage = -6
-	StageMinusFive  StatBoostStage = -5
-	StageMinusFour  StatBoostStage = -4
-	StageMinusThree StatBoostStage = -3
-	StageMinusTwo   StatBoostStage = -2
-	StageMinusOne   StatBoostStage = -1
-	StageZero       StatBoostStage = 0
-	StageOne        StatBoostStage = 1
-	StageTwo        StatBoostStage = 2
-	StageThree      StatBoostStage = 3
-	StageFour       StatBoostStage = 4
-	StageFive       StatBoostStage = 5
-	StageSix        StatBoostStage = 6
-)
-
-type Stat struct {
-	boost StatBoostStage
-	Val   StatValue
-}
-
-type StatValue uint16
-
-const (
-	StatNameHP             StatName = "HP"
-	StatNameAttack         StatName = "Attack"
-	StatNameDefense        StatName = "Defense"
-	StatNameSpecialAttack  StatName = "SpecialAttack"
-	StatNameSpecialDefense StatName = "SpecialDefense"
-	StatNameSpeed          StatName = "Speed"
-)
-
-type StatName string
-
-func (bs *BaseStat) ValidateStatStage(statName StatName, delta StatBoostStage) bool {
+func (pPokeVar *Pokemon) ValidateStatStage(statName models.StatName, delta models.StatBoostStage) bool {
 	const minStage = -6.0
 	const maxStage = 6.0
 
-	var current StatBoostStage
+	var current models.StatBoostStage
+	bs := pPokeVar.CurrStat
 
 	switch statName {
-	case StatNameHP:
-		current = bs.HP.boost
-	case StatNameAttack:
-		current = bs.Attack.boost
-	case StatNameDefense:
-		current = bs.Defense.boost
-	case StatNameSpecialAttack:
-		current = bs.SpecialAttack.boost
-	case StatNameSpecialDefense:
-		current = bs.SpecialDefense.boost
-	case StatNameSpeed:
-		current = bs.Speed.boost
+	case models.StatNameHP:
+		current = bs.HP.Boost
+	case models.StatNameAttack:
+		current = bs.Attack.Boost
+	case models.StatNameDefense:
+		current = bs.Defense.Boost
+	case models.StatNameSpecialAttack:
+		current = bs.SpecialAttack.Boost
+	case models.StatNameSpecialDefense:
+		current = bs.SpecialDefense.Boost
+	case models.StatNameSpeed:
+		current = bs.Speed.Boost
 	default:
 		return false
 	}
@@ -73,65 +31,66 @@ func (bs *BaseStat) ValidateStatStage(statName StatName, delta StatBoostStage) b
 	return newStage >= minStage && newStage <= maxStage
 }
 
-func (bs *BaseStat) IncrStatByStage(statName StatName, stage StatBoostStage) {
-	if !bs.ValidateStatStage(statName, stage) {
+func (pPokeVar *Pokemon) IncrStatByStage(statName models.StatName, stage models.StatBoostStage) {
+	if !pPokeVar.ValidateStatStage(statName, stage) {
 		return
 	}
+	bs := pPokeVar.CurrStat
 	switch statName {
-	case StatNameHP:
+	case models.StatNameHP:
 		incrStat(&bs.HP.Val, stage)
-		updStatBoostInData(&bs.HP.boost, stage)
-	case StatNameAttack:
+		updStatBoostInData(&bs.HP.Boost, stage)
+	case models.StatNameAttack:
 		incrStat(&bs.Attack.Val, stage)
-		updStatBoostInData(&bs.Attack.boost, stage)
-	case StatNameDefense:
+		updStatBoostInData(&bs.Attack.Boost, stage)
+	case models.StatNameDefense:
 		incrStat(&bs.Defense.Val, stage)
-		updStatBoostInData(&bs.Defense.boost, stage)
-	case StatNameSpecialAttack:
+		updStatBoostInData(&bs.Defense.Boost, stage)
+	case models.StatNameSpecialAttack:
 		incrStat(&bs.SpecialAttack.Val, stage)
-		updStatBoostInData(&bs.SpecialAttack.boost, stage)
-	case StatNameSpecialDefense:
+		updStatBoostInData(&bs.SpecialAttack.Boost, stage)
+	case models.StatNameSpecialDefense:
 		incrStat(&bs.SpecialDefense.Val, stage)
-		updStatBoostInData(&bs.SpecialDefense.boost, stage)
-	case StatNameSpeed:
+		updStatBoostInData(&bs.SpecialDefense.Boost, stage)
+	case models.StatNameSpeed:
 		incrStat(&bs.Speed.Val, stage)
-		updStatBoostInData(&bs.Speed.boost, stage)
+		updStatBoostInData(&bs.Speed.Boost, stage)
 	}
 }
 
-func incrStat(bsStatVal *StatValue, stage StatBoostStage) {
+func incrStat(bsStatVal *models.StatValue, stage models.StatBoostStage) {
 	var statVal = *bsStatVal
 	switch stage {
-	case StageMinusSix:
+	case models.StageMinusSix:
 		statVal *= statVal / 4
-	case StageMinusFive:
+	case models.StageMinusFive:
 		statVal *= statVal * 2 / 7
-	case StageMinusFour:
+	case models.StageMinusFour:
 		statVal *= statVal / 3
-	case StageMinusThree:
+	case models.StageMinusThree:
 		statVal *= statVal * 2 / 5
-	case StageMinusTwo:
+	case models.StageMinusTwo:
 		statVal *= statVal / 2
-	case StageMinusOne:
+	case models.StageMinusOne:
 		statVal = statVal * 3 / 4
-	case StageZero:
+	case models.StageZero:
 		statVal *= statVal
-	case StageOne:
+	case models.StageOne:
 		statVal *= statVal * 3 / 2
-	case StageTwo:
+	case models.StageTwo:
 		statVal *= statVal * 2
-	case StageThree:
+	case models.StageThree:
 		statVal *= statVal * 5 / 2
-	case StageFour:
+	case models.StageFour:
 		statVal *= statVal * 3
-	case StageFive:
+	case models.StageFive:
 		statVal *= statVal * 7 / 2
-	case StageSix:
+	case models.StageSix:
 		statVal *= statVal * 4
 	}
 	*bsStatVal = statVal
 }
 
-func updStatBoostInData(currStage *StatBoostStage, updStage StatBoostStage) {
+func updStatBoostInData(currStage *models.StatBoostStage, updStage models.StatBoostStage) {
 	*currStage = updStage
 }

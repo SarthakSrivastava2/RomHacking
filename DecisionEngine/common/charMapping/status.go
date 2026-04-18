@@ -1,8 +1,5 @@
 package charmapping
 
-type VolatileStatus string
-type PermStatus string
-type PokeStatus struct {
-	VolatileStatus *[]VolatileStatus
-	PermStatus     *PermStatus
-}
+import "github.com/SarthakSrivastava2/RomHacking/DecisionEngine/models"
+
+var InflictStatusEffect map[models.PokeStatus]func(*Pokemon, *Pokemon)

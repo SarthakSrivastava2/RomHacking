@@ -1,13 +1,11 @@
 package charmapping
 
-type Level uint8
+import "github.com/SarthakSrivastava2/RomHacking/DecisionEngine/models"
 
-type Experience uint16
-
-func (pokeLvl Level) SetLevel(level Level) {
-	pokeLvl = level
+func (pPokeVar *Pokemon) SetLevel(level models.Level) {
+	(*pPokeVar).Level = level
 }
 
-func (pokeLvl Level) IncrLevel() {
-	pokeLvl += 1
+func (pPokeVar *Pokemon) IncrLevel() {
+	(*pPokeVar).Level += 1
 }

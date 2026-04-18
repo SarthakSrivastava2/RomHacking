@@ -1,3 +1,5 @@
 package charmapping
 
-type HeldItem string
+import models "github.com/SarthakSrivastava2/RomHacking/DecisionEngine/models"
+
+var InflictItemEffect map[models.HeldItem]func(*Pokemon, *Pokemon)
